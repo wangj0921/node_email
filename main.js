@@ -28,8 +28,8 @@ let EmailTo = "1414798586@qq.com";
 let EmailSubject = "一封暖暖的小邮件";
 
 //每日发送时间
-let EmailHour = 8;
-let EmialMinminute= 8;
+let EmailHour = 17;
+let EmialMinminute= 23;
 
 // 爬取数据的url
 const OneUrl = "http://wufazhuce.com/";
@@ -139,7 +139,6 @@ function sendMail(HtmlData) {
       fs.readFileSync(path.resolve(__dirname, "email.ejs"), "utf8")
     );
     const html = template(HtmlData);
-  
     let transporter = nodemailer.createTransport({
       service: EmianService,
       port: 465,
@@ -161,7 +160,7 @@ function sendMail(HtmlData) {
       console.log("邮件发送成功", info.messageId);
       console.log("静等下一次发送");
     });
-  }
+}
 
 // 聚合
 function getAllDataAndSendMail(){
